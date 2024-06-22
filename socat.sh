@@ -17,7 +17,7 @@ Blue="\033[33m"
 
 rootness(){
     if [[ $EUID -ne 0 ]]; then
-       echo "Error:This script must be run as root!" 1>&2
+       echo "此脚本需要以 root 身份运行，请使用 sudo 以继续。" 1>&2
        exit 1
     fi
 }
@@ -38,7 +38,7 @@ checkos(){
     elif cat /proc/version | grep -q -E -i "centos|red hat|redhat";then
         OS=CentOS
     else
-        echo "Not supported OS, Please reinstall OS and try again."
+        echo "你的操作系统不支持使用此脚本。"
         exit 1
     fi
 }
